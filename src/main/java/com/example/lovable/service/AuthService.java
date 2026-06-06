@@ -7,5 +7,6 @@ import com.example.lovable.dto.auth.SignupRequest;
 
 public interface AuthService {
     AuthResponse signup(SignupRequest request);
+
     AuthResponse login(LoginRequest request);
 }

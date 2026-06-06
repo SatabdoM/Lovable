@@ -3,7 +3,6 @@ package com.example.lovable.service;
 import com.example.lovable.dto.project.ProjectRequest;
 import com.example.lovable.dto.project.ProjectResponse;
 import com.example.lovable.dto.project.ProjectSummaryResponse;
-import com.example.lovable.entity.Project;
 
 import java.util.List;
 

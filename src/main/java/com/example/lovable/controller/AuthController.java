@@ -30,7 +30,6 @@ public class AuthController {
 
     @GetMapping("/me")
     public ResponseEntity<UserProfileResponse> getProfile() {
-        // Implementation for fetching user profile
         Long userId = 1L; // Placeholder for authenticated user ID
         return ResponseEntity.ok(userService.getProfile(userId));
     }
