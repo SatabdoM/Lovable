@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.jspecify.annotations.Nullable;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.Instant;
@@ -22,11 +23,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String email;
-    String passwordHash;
+    String username;
+    String password;
     String name;
 
-    String avatarUrl;
+    @Column(unique = true)
+    String stripeCustomerId;
 
     @CreationTimestamp
     Instant createdAt;
@@ -35,4 +37,6 @@ public class User {
 
 
     Instant deletedAt;
+
+
 }

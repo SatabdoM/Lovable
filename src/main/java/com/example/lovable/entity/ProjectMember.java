@@ -2,22 +2,33 @@ package com.example.lovable.entity;
 
 
 import com.example.lovable.entity.enums.ProjectRole;
-import lombok.AccessLevel;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.Instant;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Table(name = "project_members")
 public class ProjectMember {
+    @EmbeddedId
     ProjectMemberId id;
-
+    @ManyToOne
+    @MapsId("projectId")
     Project project;
 
+    @ManyToOne
+    @MapsId("userId")
     User user;
 
-    ProjectRole projectRole ;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    ProjectRole projectRole;
 
     Instant invitedAt;
 
