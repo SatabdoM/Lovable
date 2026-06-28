@@ -23,4 +23,8 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     public PortalResponse openCustomerPortal(Long userId) {
         return null;
     }
+
+    @Override
+    public void activateSubscription(Long userId, Long planId, String subscriptionId, String customerId){
+    }
 }

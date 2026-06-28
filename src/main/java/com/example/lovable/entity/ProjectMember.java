@@ -16,21 +16,30 @@ import java.time.Instant;
 @Builder
 @Table(name = "project_members")
 public class ProjectMember {
+    // Composite primary key consisting of (projectId, userId).
+    // The ProjectMemberId object is embedded into this entity and
+    // acts as the primary key instead of a single @Id field.
     @EmbeddedId
-    ProjectMemberId id;
+    private ProjectMemberId id;
+
+    // Many ProjectMember records can belong to one Project.
+    // @MapsId("projectId") tells JPA that the projectId field inside
+    // the composite key should be populated from project.getId().
     @ManyToOne
     @MapsId("projectId")
-    Project project;
+    private Project project;
 
+    // Many ProjectMember records can belong to one User.
+    // @MapsId("userId") tells JPA that the userId field inside
+    // the composite key should be populated from user.getId().
     @ManyToOne
     @MapsId("userId")
-    User user;
+    private User user;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     ProjectRole projectRole;
 
     Instant invitedAt;
-
-
+    Instant acceptedAt;
 }

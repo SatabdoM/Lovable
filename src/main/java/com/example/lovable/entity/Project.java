@@ -13,11 +13,17 @@ import java.time.Instant;
 
 @Data
 @Entity
-@Table(name = "projects")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
+@Table(name = "projects",
+        indexes = {
+                @Index(name = "idx_projects_updated_at_desc", columnList = "updated_at DESC, deleted_at"),
+                @Index(name = "idx_projects_deleted_at_updated_at_desc", columnList = "deleted_at, updated_at DESC"),
+                @Index(name = "idx_projects_deleted_at", columnList = "deleted_at")
+        })
+
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

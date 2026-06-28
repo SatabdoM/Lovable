@@ -7,13 +7,13 @@ import com.example.lovable.dto.project.ProjectSummaryResponse;
 import java.util.List;
 
 public interface ProjectService {
-    List<ProjectSummaryResponse> getUserProjects(Long userId);
+    List<ProjectSummaryResponse> getUserProjects();
 
-    ProjectResponse getProjectById(Long projectId, Long userId);
+    ProjectResponse getProjectById(Long projectId);
 
-    ProjectResponse createProject(ProjectRequest request, Long userId);
+    ProjectResponse createProject(ProjectRequest request);
 
-    ProjectResponse updateProject(Long projectId, ProjectRequest request, Long userId);
+    ProjectResponse updateProject(Long projectId, ProjectRequest request);
 
-    ProjectResponse softDelete(Long projectId, Long userId);
+    ProjectResponse softDelete(Long projectId);
 }

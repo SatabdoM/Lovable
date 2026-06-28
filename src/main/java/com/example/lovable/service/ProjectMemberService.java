@@ -2,7 +2,7 @@ package com.example.lovable.service;
 
 import com.example.lovable.dto.member.InviteMemberRequest;
 import com.example.lovable.dto.member.MemberResponse;
-import com.example.lovable.dto.member.UpdateMemberRequest;
+import com.example.lovable.dto.member.UpdateMemberRoleRequest;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public interface ProjectMemberService {
 
     MemberResponse inviteMember(Long projectId, Long userId, InviteMemberRequest request);
 
-    MemberResponse updateMemberRole(Long projectId, Long memberId, UpdateMemberRequest newRole, Long userId);
+    MemberResponse updateMemberRole(Long projectId, Long memberId, UpdateMemberRoleRequest newRole, Long userId);
 
-    MemberResponse deleteProjectMember(Long projectId, Long memberId, Long userId);
+    void removeProjectMember(Long projectId, Long memberId, Long userId);
 }
